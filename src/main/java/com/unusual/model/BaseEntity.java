@@ -1,22 +1,26 @@
 package com.unusual.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
-
+@Getter
+@Setter
 @MappedSuperclass
 public class BaseEntity {
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Long id;
 
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

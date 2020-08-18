@@ -3,8 +3,7 @@ package com.unusual.model;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.Set;
 
@@ -14,10 +13,15 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-public class Repertoars extends BaseEntity {
+public class Gig {
 
-    @OneToMany(mappedBy = "repertoar")
-    private Set<SongsPerRepertoar> songsPerRepertoar;
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn( name = "repertoar_id", referencedColumnName = "id")
+    private Repertoar repertoar;
 
     private String clubName;
 

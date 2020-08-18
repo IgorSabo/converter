@@ -1,0 +1,14 @@
+SET FOREIGN_KEY_CHECKS=0;
+CREATE TABLE `songs_per_repertoar` (
+  `song_id` bigint(11) NOT NULL,
+  `repertoar_id` bigint(11) NOT NULL,
+	`order` int null default null,
+  PRIMARY KEY (`song_id`,`repertoar_id`),
+  KEY `song_id` (`song_id`),
+  CONSTRAINT `song_repertoar_ibfk_1`
+   FOREIGN KEY (`song_id`) REFERENCES `song` (`id`),
+  CONSTRAINT `song_repertoar_ibfk_2`
+   FOREIGN KEY (`repertoar_id`) REFERENCES `repertoar` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+SET FOREIGN_KEY_CHECKS=1;
+

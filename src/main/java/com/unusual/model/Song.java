@@ -4,7 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by MC on 27.9.2019..
@@ -12,7 +13,11 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-public class Songs extends BaseEntity {
+public class Song {
+
+    @Id
+    @GeneratedValue
+    private Long id;
 
     private String bandName;
 
@@ -24,9 +29,9 @@ public class Songs extends BaseEntity {
     @Lob
     private String chords;
 
-    @OneToOne(mappedBy = "song")
-    private SongsPerRepertoar songsPerRepertoar;
+    @OneToMany(mappedBy = "song",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    private List<SongsRepertoar> repertoars = new ArrayList<>();
 
-    @OneToMany(mappedBy = "song")
-    private Set<SongSynonymes> synonymes;
 }
