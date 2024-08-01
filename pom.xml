@@ -15,7 +15,7 @@
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
-		<bootstrap.version>3.3.4</bootstrap.version>
+		<bootstrap.version>3.4.1</bootstrap.version>
 		<java.version>1.8</java.version>
 		<jquery.version>2.1.4</jquery.version>
 		<font-awesome.version>4.5.0</font-awesome.version>
